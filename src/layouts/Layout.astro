@@ -1,0 +1,84 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+		<header>
+			<nav class="nav">
+				<b><a href="index" class="nav_but">Home</a></b>
+				<b><a href="blog" class="nav_but">Blog</a></b>
+				<b><a href="launcher" class="nav_but">Launcher</a></b>
+				<b><a href="projects" class="nav_but">Projects</a></b>
+				<b><a href="https://shork.one"  target="_blank" class="nav_but">Shork</a></b>
+			</nav>
+		  </header>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	header {
+  background-color: #09090b;
+  border-radius: 20px;
+  border: solid 2px #18181b ;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.nav {
+  margin-left: 75%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav_but {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+</style>

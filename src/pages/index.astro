@@ -67,9 +67,9 @@ import Layout from '../layouts/Layout.astro';
 	<script>
 		const popup = document.getElementById('popup');
 		document.getElementById('open-popup')?.addEventListener('click', () => {
-		  popup?.style.display = 'block';
+		  popup!.style.display = 'block';
 		  document.getElementById('close-popup')?.addEventListener('click', () => {
-			popup?.style.display = 'none';
+			popup!.style.display = 'none';
 		  });
 		});
 					</script>

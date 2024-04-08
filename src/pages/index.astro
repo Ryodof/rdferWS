@@ -38,8 +38,10 @@ import Layout from '../layouts/Layout.astro';
 		  	<script>
 				document.getElementById('open-popup').addEventListener('click', () => {
   document.getElementById('popup').style.display = 'flex';
-  document.getElementById('close-popup').addEventListener('click', () => {
-	document.getElementById('popup').style.display = 'none';
+  document.getElementById('close-popup')?.addEventListener('click', () => {
+  document.getElementById('popup').style.display = 'none';
+});
+	
   });
 });
 			</script>

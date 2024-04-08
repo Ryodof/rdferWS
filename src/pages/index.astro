@@ -41,10 +41,11 @@ import Layout from '../layouts/Layout.astro';
 		  </div>
 
 		  	<script>
+			const popup = document.getElementById('popup');
 				document.getElementById('open-popup')?.addEventListener('click', () => {
-  document.getElementById('popup').style.display = 'flex';
-  document.getElementById('close-popup')?.addEventListener('click', () => {
-  document.getElementById('popup').style.display = 'none';
+  				popup?.style.display = 'none';
+ 				 document.getElementById('close-popup')?.addEventListener('click', () => {
+ 				 popup?.style.display = 'none';
 });
 	
   }); 

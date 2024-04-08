@@ -41,13 +41,13 @@ import Layout from '../layouts/Layout.astro';
 		  </div>
 
 		  	<script>
-				document.getElementById('open-popup').addEventListener('click', () => {
+				document.getElementById('open-popup')?.addEventListener('click', () => {
   document.getElementById('popup').style.display = 'flex';
   document.getElementById('close-popup')?.addEventListener('click', () => {
   document.getElementById('popup').style.display = 'none';
 });
 	
-  });c
+  }); 
 			</script>
 
 		<hr class="hor_line">

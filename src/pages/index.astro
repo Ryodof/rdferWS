@@ -32,7 +32,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
            
 
-		  <div id="popup" class="popup grey-black" class="blur_pop_up" style="border-radius: 9px;">
+		  <div id="popup" class="popup grey-black" style="border-radius: 9px;">
 			<div class="popup-content">
 			  <h2>Pop-up Title</h2>
 			  <p>Pop-up content goes here.</p>
@@ -73,6 +73,16 @@ document.getElementById('open-popup')?.addEventListener('click', () => {
             </code>
         </pre>
     </main>
+	
+	<script>
+		const popup = document.getElementById('popup');
+		document.getElementById('open-popup')?.addEventListener('click', () => {
+		  popup?.style.display = 'block';
+		  document.getElementById('close-popup')?.addEventListener('click', () => {
+			popup?.style.display = 'none';
+		  });
+		});
+					</script>
 </Layout>
 
 <style>

@@ -5,12 +5,12 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Home">
 	 <main style="padding: 10px;background: black; color: white;: 26px;">             
         <aside>
-            <h1>What is going on on this website?</h1>
+            <h1 class="lil">What is going on on this website?</h1>
         
             <ul>
-                <li>upgrade</li>
-                <li>idk</li>    
-                <li>idk</li>
+                <li class="lil">upgrade</li>
+                <li class="lil">idk</li>    
+                <li class="lil">idk</li>
             </ul>
         </aside>
         
@@ -43,10 +43,10 @@ import Layout from '../layouts/Layout.astro';
 		<hr class="hor_line">
         
         <dl>
-            <dt>Who am I?</dt>
-            <dt>What do I do?</dt>
+            <dt  class="lil">Who am I?</dt>
+            <dt  class="lil">What do I do?</dt>
             <dd>
-                <blockquote>
+                <blockquote  class="lil">
                     I am starter web and not only web developer.<br>I learn coding, make learn projects like this site.<br>I learn Python, HTML, CSS, JS, C#.
                 </blockquote>
             </dd>
@@ -54,10 +54,10 @@ import Layout from '../layouts/Layout.astro';
         
         <hr class="hor_line">
         
-        <h3>Further is code on Python,<br> that prints "Hello, World!"</h3>
+        <h3  class="lil">Further is code on Python,<br> that prints "Hello, World!"</h3>
         
         <pre>
-            <code>
+            <code  class="lil">
                 a="Hello, World!"
                 print(a)
             </code>
@@ -76,6 +76,9 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	.lil{
+		color: #18181b;
+	}
 	.cont_but{
 		background: black;
 		color: #ffffff9a;

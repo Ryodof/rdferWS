@@ -28,8 +28,16 @@ const { title } = Astro.props;
 	<body>
 		<slot />
 	</body>
+	<footer>
+		<button class="source"><b><a>></SOURCE\</a></b></button>
+	</footer>
 </html>
 <style is:global>
+	.source{
+		border: solid white 3px;
+		border-radius: 20px;
+		color:white;
+	}
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;

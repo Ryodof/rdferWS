@@ -61,26 +61,29 @@ import Layout from '../layouts/Layout.astro';
     </pre>
   </main>
   
-  <script>
+  <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       const popup = document.getElementById('popup');
       const openPopupBtn = document.getElementById('open-popup');
       const closePopupBtn = document.getElementById('close-popup');
 
+      if (!popup || !openPopupBtn || !closePopupBtn) return;
+
       // Open popup
-      openPopupBtn?.addEventListener('click', (e) => {
+      openPopupBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         popup.style.display = 'flex';
       });
 
       // Close popup
-      closePopupBtn?.addEventListener('click', () => {
+      closePopupBtn.addEventListener('click', () => {
         popup.style.display = 'none';
       });
 
       // Close popup when clicking outside
       document.addEventListener('click', (e) => {
-        if (popup.style.display === 'flex' && !popup.contains(e.target) && e.target !== openPopupBtn) {
+        const target = e.target as Node;
+        if (popup.style.display === 'flex' && !popup.contains(target) && target !== openPopupBtn) {
           popup.style.display = 'none';
         }
       });

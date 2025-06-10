@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,108 +8,156 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-		<header>
-			<nav class="nav">
-				<b><a href="index" class="nav_but">Home</a></b>
-				<b><a href="blog" class="nav_but">Blog</a></b>
-				<b><a href="projects" class="nav_but">Projects</a></b>
-				<b><a href="social" class="nav_but">Social</a></b>
-			</nav>
-		</header>
-	<body>
-		<slot />
-	</body>
-	<footer>
-		<b><a class="source" target="_blank" href="https://github.com/Ryodof/rdferWS">/SOURCE\</a></b>
-		<p class="texter">This website was created on framework Astro. This is an open-source project by _Ryodof.<br> If you have an idea for my projects, you can send them to "ideas@ryodof.ru".</p>
-		
-	</footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <b><a href="index" class="nav_but">Home</a></b>
+        <b><a href="blog" class="nav_but">Blog</a></b>
+        <b><a href="projects" class="nav_but">Projects</a></b>
+        <b><a href="social" class="nav_but">Social</a></b>
+      </nav>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer>
+      <div class="footer-content">
+        <a class="source" target="_blank" href="https://github.com/Ryodof/rdferWS">/SOURCE\</a>
+        <p class="texter">
+          This website was created on framework Astro. This is an open-source project by _Ryodof.<br>
+          If you have an idea for my projects, you can send them to "ideas@ryodof.ru".
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
+
 <style is:global>
-	footer{
-		background: #000;
-	}
-	.source{
-		border: solid white 3px;
-		border-radius: 20px;
-		color:white;
-		background: #000;
-		width: 10%;
-		height: 20px;
-		text-align: center;
-		margin-left: 45%;
-		text-decoration: none;
-	}
-	.source_in{
-		color:white;
-		background: #000;
-		text-align: center;
-		text-decoration: none;
+  /* ===== Base Styles ===== */
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
 
-	}
-	.texter{
-		color: #ffffff9a;
-		text-align: center;
-	}
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-	header {
-		background-color: #09090b;
-		border-radius: 20px;
-		border: solid 2px #a7a3a359 ;
-		padding: 10px;
-		align-items: center;
-		color: #fff;
-		position: fixed;
-		width: 97%;
-		margin-bottom: 20%;
-}
+  html {
+    font-family: system-ui, sans-serif;
+    background: #13151a;
+    scroll-behavior: smooth;
+  }
 
-.nav {
-	margin-left: 70%;
-	list-style: none;
-	display: flex;
-	flex-direction: row;
-	align-content: space-between;
-	align-items: stretch;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 
-.nav_but {
-	color: #fff;
-	text-decoration: none;
-	margin-left: 25%;
-}
+  /* ===== Header Styles ===== */
+  header {
+    background-color: #09090b;
+    border-radius: 20px;
+    border: solid 2px #a7a3a359;
+    padding: 12px 24px;
+    color: #fff;
+    position: fixed;
+    width: calc(100% - 48px);
+    top: 10px;
+    left: 10px;
+    box-sizing: border-box;
+    z-index: 100;
+  }
 
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav_but {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    transition: color 0.3s ease;
+  }
+
+  .nav_but:hover {
+    color: rgba(var(--accent-light));
+  }
+
+  /* ===== Main Content ===== */
+  main {
+    flex: 1;
+    padding: 80px 24px 40px;
+  }
+
+  /* ===== Footer Styles ===== */
+  footer {
+    background: #000;
+    padding: 32px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .source {
+    display: inline-block;
+    border: solid white 3px;
+    border-radius: 20px;
+    color: white;
+    background: #000;
+    padding: 8px 24px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .source:hover {
+    background: rgba(var(--accent-dark));
+    transform: translateY(-2px);
+  }
+
+  .texter {
+    color: #ffffff9a;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  /* ===== Utilities ===== */
+  code {
+    font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 
+                 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 
+                 'Courier New', monospace;
+  }
 </style>

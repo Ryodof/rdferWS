@@ -82,8 +82,8 @@ import Layout from '../layouts/Layout.astro';
 
       // Close popup when clicking outside
       document.addEventListener('click', (e) => {
-        const target = e.target as Node;
-        if (popup.style.display === 'flex' && !popup.contains(target) && target !== openPopupBtn) {
+        const target = e.target;
+        if (popup.style.display === 'flex' && target && !popup.contains(target) && target !== openPopupBtn) {
           popup.style.display = 'none';
         }
       });
